@@ -10,7 +10,9 @@ mongoose.connection.on('error', function() {
 });
 
 var app = express();
-
+app.get('/', function (req, res) {
+   res.send('Hello!!!!')
+});
 app.set('port', 8080);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
