@@ -7,4 +7,10 @@ module.exports = function (app) {
         });
     });
 
+    app.get('/api/messages/:id', function (req, res) {
+        Messages.findById(req.params.id, function (err, messages) {
+            res.send(messages);
+        });
+    });
+
 };
