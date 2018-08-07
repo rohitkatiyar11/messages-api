@@ -9,12 +9,13 @@ mongoose.connect(config.MONGO_URI);
 mongoose.connection.on('error', function() {
   console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
 });
+var port = process.env.PORT || 3000;
 
 var app = express();
 app.get('/', function (req, res) {
    res.send('Hello!!!!')
 });
-app.set('port', 8080);
+app.set('port', port);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
